@@ -1,2 +1,2 @@
 # IS2_2324
-Alumno: Oscar Ruiz
+Alumnos: Oscar Ruiz y Diego Carcedo
