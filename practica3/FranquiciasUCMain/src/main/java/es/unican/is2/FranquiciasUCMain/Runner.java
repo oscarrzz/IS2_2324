@@ -25,9 +25,7 @@ public class Runner {
 		
 		// Lanzar ejecuci�n (hacer visible la interfaz)
 		vista.setVisible(true);
-		
 	
-		
 	}
 
 }
