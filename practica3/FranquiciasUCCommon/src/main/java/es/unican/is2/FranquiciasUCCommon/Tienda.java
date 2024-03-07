@@ -45,6 +45,25 @@ public class Tienda implements Serializable {
 		}
 		return total;
 	}
+	
+	/**
+     * Añade un nuevo empleado a la lista de empleados de la tienda.
+     *
+     * @param empleado Nuevo empleado a añadir
+     */
+    public void añadeEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+    }
+
+    /**
+     * Elimina un empleado de la lista de empleados de la tienda.
+     *
+     * @param empleado Empleado a eliminar
+     * @return true si se elimina correctamente, false si el empleado no existe en la lista
+     */
+    public boolean eliminaEmpleado(Empleado empleado) {
+        return empleados.remove(empleado);
+    }
 
 	/**
 	 * Retorna el empleado con el dni indicado
