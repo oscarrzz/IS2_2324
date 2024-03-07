@@ -1,5 +1,7 @@
 package es.unican.is2.FranquiciasUCBusiness;
 
+import java.time.LocalDate;
+
 import es.unican.is2.FranquiciasUCCommon.DataAccessException;
 import es.unican.is2.FranquiciasUCCommon.Empleado;
 import es.unican.is2.FranquiciasUCCommon.IEmpleadosDAO;
@@ -27,6 +29,7 @@ public class GestionEmpleados implements IGestionEmpleados {
 		if (tienda.buscaEmpleado(e.getDNI()) == null) {
 			tienda.añadeEmpleado(e);
 			e.darDeAlta();
+			e.setFechaContratacion(LocalDate.now());
 			tiendasDAO.modificarTienda(tienda);
 			empleadosDAO.modificarEmpleado(e);
 			return e;
@@ -67,6 +70,7 @@ public class GestionEmpleados implements IGestionEmpleados {
 			e.darDeBaja();
 			tiendaDestino.añadeEmpleado(e);
 			e.darDeAlta();
+			e.setFechaContratacion(LocalDate.now());
 			empleadosDAO.modificarEmpleado(e);
 			tiendasDAO.modificarTienda(tiendaActual);
 			tiendasDAO.modificarTienda(tiendaDestino);

@@ -1,8 +1,5 @@
 package es.unican.is2.FranquiciasUCBusiness;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import es.unican.is2.FranquiciasUCCommon.DataAccessException;
 import es.unican.is2.FranquiciasUCCommon.IGestionTiendas;
 import es.unican.is2.FranquiciasUCCommon.ITiendasDAO;
@@ -13,7 +10,8 @@ public class GestionTiendas implements IGestionTiendas {
 
     private ITiendasDAO tiendas; // Almacena las tiendas por nombre
 
-    public GestionTiendas() {
+    public GestionTiendas(ITiendasDAO tiendasDAO) {
+    	this.tiendas = tiendasDAO;
     }
 
     @Override
