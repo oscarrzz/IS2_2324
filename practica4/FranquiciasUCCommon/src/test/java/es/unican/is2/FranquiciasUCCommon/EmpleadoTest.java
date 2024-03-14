@@ -5,6 +5,36 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
 public class EmpleadoTest {
+	
+	@Test
+    public void testConstructor() {
+        LocalDate fechaContratacion = LocalDate.of(2019, 1, 1);
+        Empleado empleado = new Empleado("12345678A", "Juan", Categoria.ENCARGADO, fechaContratacion);
+        assertEquals("12345678A", empleado.getDNI());
+        assertEquals("Juan", empleado.getNombre());
+        assertEquals(Categoria.ENCARGADO, empleado.getCategoria());
+        assertEquals(fechaContratacion, empleado.getFechaContratacion());
+        assertEquals(false, empleado.getBaja());
+    }
+	
+	@Test
+    public void testGettersAndSetters() {
+		Empleado empleado = new Empleado("12345678A", "Juan", Categoria.ENCARGADO, LocalDate.of(2010, 1, 1));
+        empleado.setDNI("87654321B");
+        assertEquals("87654321B", empleado.getDNI());
+
+        empleado.setNombre("Pedro");
+        assertEquals("Pedro", empleado.getNombre());
+
+        empleado.setFechaContratacion(LocalDate.of(2020, 1, 1));
+        assertEquals(LocalDate.of(2020, 1, 1), empleado.getFechaContratacion());
+
+        empleado.setBaja(true);
+        assertEquals(true, empleado.getBaja());
+
+        empleado.setCategoria(Categoria.VENDEDOR);
+        assertEquals(Categoria.VENDEDOR, empleado.getCategoria());
+    }
 
     @Test
     public void testSueldoBruto() {
@@ -13,7 +43,7 @@ public class EmpleadoTest {
 
         double sueldoBruto = empleado.sueldoBruto();
 
-        assertEquals(2200.0, sueldoBruto); // Sueldo base de ENCARGADO + complemento de antigüedad
+        assertEquals(2200.0, sueldoBruto);
     }
 
     @Test
