@@ -11,13 +11,12 @@ import org.junit.jupiter.api.Test;
 
 public class TiendaTest {
 
-	private Tienda tienda;
+	private Tienda tienda = new Tienda("Mi Tienda", "123 Calle Principal");
 	private Empleado empleado1 = new Empleado("z", "z", Categoria.ENCARGADO, LocalDate.now());
     private Empleado empleado2 = new Empleado("z", "z", Categoria.AUXILIAR, LocalDate.now());    
     @Test
     public void setUp() {
         // Crear una nueva tienda antes de cada prueba
-        tienda = new Tienda("Mi Tienda", "123 Calle Principal");
         assertEquals("Mi Tienda", tienda.getNombre());
         assertEquals("123 Calle Principal", tienda.getDireccion());
     }
