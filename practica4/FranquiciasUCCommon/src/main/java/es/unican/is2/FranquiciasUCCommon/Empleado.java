@@ -1,8 +1,5 @@
 package es.unican.is2.FranquiciasUCCommon;
 
-
-
-
 import java.time.LocalDate;
 /**
  * Clase que representa un empleado de la franquicia, 
@@ -10,12 +7,15 @@ import java.time.LocalDate;
  * y su estado en la franquicia (baja y categoria)
  */
 public class Empleado {
+	
 
 	private String DNI;
 	private String nombre;
 	private Categoria categoria;
 	private LocalDate fechaContratacion;
+	private LocalDate hoy = LocalDate.of(2025, 1, 1);
 	private boolean baja = false;
+	
 
 	public Empleado() {	}
 
@@ -27,7 +27,13 @@ public class Empleado {
 	 * @param categoria
 	 * @param fechaContratacion
 	 */
-	public Empleado(String DNI, String nombre, Categoria categoria, LocalDate fechaContratacion) {
+	public Empleado(String DNI, String nombre, Categoria categoria, LocalDate fechaContratacion)
+			throws NullPointerException, IllegalArgumentException {
+		if (DNI == null || nombre == null || categoria == null || fechaContratacion == null) {
+			throw new NullPointerException();
+		} else if (fechaContratacion.isAfter(hoy)) {
+			throw new IllegalArgumentException();
+		}
 		this.nombre = nombre;
 		this.DNI=DNI;
 		this.categoria=categoria;
@@ -42,8 +48,6 @@ public class Empleado {
 		double complementoAntiguedad = obtenerComplementoAntiguedad();
 
 		double sueldo = sueldoBase + complementoAntiguedad;
-
-		// Reducción del 25% si el trabajador está de baja
 		if (baja) {
 			sueldo *= 0.75;
 		}
@@ -65,7 +69,7 @@ public class Empleado {
 	}
 
 	private double obtenerComplementoAntiguedad() {
-		long antiguedad = LocalDate.now().getYear() - fechaContratacion.getYear();
+		int antiguedad = LocalDate.now().getYear() - fechaContratacion.getYear();
 
 		if (antiguedad > 20) {
 			return 200;

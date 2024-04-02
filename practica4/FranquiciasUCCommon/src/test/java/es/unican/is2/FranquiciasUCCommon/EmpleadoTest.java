@@ -34,16 +34,30 @@ public class EmpleadoTest {
 
         empleado.setCategoria(Categoria.VENDEDOR);
         assertEquals(Categoria.VENDEDOR, empleado.getCategoria());
+        
+        empleado.setCategoria(Categoria.ENCARGADO);
+        assertEquals(Categoria.ENCARGADO, empleado.getCategoria());
+        
+        empleado.setCategoria(Categoria.AUXILIAR);
+        assertEquals(Categoria.AUXILIAR, empleado.getCategoria());
     }
 
     @Test
     public void testSueldoBruto() {
-        LocalDate fechaContratacion = LocalDate.of(2010, 1, 1);
+        LocalDate fechaContratacion = LocalDate.of(2000, 3, 15);
         Empleado empleado = new Empleado("12345678A", "Juan", Categoria.ENCARGADO, fechaContratacion);
-
         double sueldoBruto = empleado.sueldoBruto();
-
         assertEquals(2200.0, sueldoBruto);
+        
+        fechaContratacion = LocalDate.of(2011, 3, 15);
+        empleado.setFechaContratacion(fechaContratacion);
+        sueldoBruto = empleado.sueldoBruto();
+        assertEquals(2100.0, sueldoBruto);
+        
+        fechaContratacion = LocalDate.of(2017, 3, 15);
+        empleado.setFechaContratacion(fechaContratacion);
+        sueldoBruto = empleado.sueldoBruto();
+        assertEquals(2050.0, sueldoBruto);
     }
 
     @Test
