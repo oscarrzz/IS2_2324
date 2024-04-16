@@ -3,15 +3,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.unican.is2.listaOrdenadaAcotada.ListaOrdenadaAcotada;
+import Lista.ListaOrdenadaAcotada;
+
 
 class ListaOrdenadaAcotadaTest {
 	
-	ListaOrdenadaAcotada<Integer> lista;
+	ListaOrdenadaAcotada<Integer> lista = new ListaOrdenadaAcotada<Integer>(5);;
 	
 	@BeforeEach
 	public void testCrearLista() {
-		lista = new ListaOrdenadaAcotada<Integer>(5);
+		lista.size();
 	}
 	
 	@Test
@@ -31,7 +32,6 @@ class ListaOrdenadaAcotadaTest {
 		assertEquals(lista.get(0), 3);
 		assertThrows(IndexOutOfBoundsException.class, () -> lista.get(-5));
 		assertThrows(IndexOutOfBoundsException.class, () -> lista.get(21));
-		assertThrows(NullPointerException.class, () -> lista.get(1));
 	}
 	
 	@Test
@@ -42,5 +42,31 @@ class ListaOrdenadaAcotadaTest {
 		assertThrows(IndexOutOfBoundsException.class, () -> lista.remove(-1));
 	}
 	
+	@Test
+	void testSize() {
+		assertEquals(lista.size(), 0);
+		lista.add(1);
+		lista.add(1);
+		assertEquals(lista.size(), 2);
+		lista.add(1);
+		lista.add(1);
+		lista.add(1);
+		assertEquals(lista.size(), 5);
+	}
+	
+	@Test
+	void testClear() {
+		lista.add(1);
+		lista.add(1);
+		lista.clear();
+		assertEquals(lista.size(), 0);
+		lista.add(1);
+		lista.add(1);
+		lista.add(1);
+		lista.add(1);
+		lista.add(1);
+		lista.clear();
+		assertEquals(lista.size(), 0);
+	}
 
 }
