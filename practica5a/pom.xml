@@ -10,7 +10,11 @@
 		<version>5.9.2</version>
 		<scope>test</scope>
 	</dependency>
-	
+	<dependency>
+		<groupId>com.unican.es</groupId>
+		<artifactId>practica5a</artifactId>
+		<version>0.0.1</version>
+	</dependency>
 	
   </dependencies>
 </project>
