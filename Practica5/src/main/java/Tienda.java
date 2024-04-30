@@ -90,19 +90,31 @@ public class Tienda {
 		}
 		double comision = 0;
 		if (v instanceof VendedorEnPlantilla) {// wmc + 1 CCog + 1
-			switch (((VendedorEnPlantilla) v).tipo()) {//CCog + 2
-			case Junior:// wmc + 1
-				comision = importe * 0.005;
-				break;
-			case Senior:// wmc + 1
-				comision = importe * 0.01;
-				break;
-			}
+			/*
+			 * switch (((VendedorEnPlantilla) v).tipo()) {//CCog + 2 case Junior:// wmc + 1
+			 * comision = importe * 0.005; break; case Senior:// wmc + 1 comision = importe
+			 * * 0.01; break; }
+			 */
+			comision = asignaComision((VendedorEnPlantilla) v, importe);// CCog + 1
 		}
 		v.anhade(importe);
 		v.setC(v.getC()+comision);
 		vuelcaDatos();
 		return true;
+	}
+	
+	//Nuevo metodo creado
+	public double asignaComision(VendedorEnPlantilla v, double importe) {// wmc +1
+		double comision = 0;
+		switch (v.tipo()) {//CCog + 1
+			case Junior:// wmc + 1
+				comision = importe * 0.005; 
+				break; 
+			case Senior:// wmc + 1 
+				comision = importe * 0.01; 
+				break;
+		}
+		return comision;
 	}
 
 	/**
