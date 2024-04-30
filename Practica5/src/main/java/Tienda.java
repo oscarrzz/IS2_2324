@@ -203,8 +203,8 @@ public class Tienda {
 	 * 
 	 * @return La lista de vendedores
 	 */
-	public List<Vendedor> vendedores() throws DataAccessException {// wmc + 1
-
+	public 
+	List<Vendedor> vendedores() throws DataAccessException {// wmc + 1
 		return lista;
 	}
 
@@ -265,5 +265,4 @@ public class Tienda {
 				out.close();
 		}
 	}
-
 }

@@ -15,8 +15,9 @@ public class GestionComisiones {
 
 	/**
 	 * Programa principal basado en menu
+	 * @throws DataAccessException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DataAccessException {
 		// opciones del menu
 		final int NUEVA_VENTA = 0, VENDEDOR_DEL_MES = 1, VENDEDORES = 2;
 
