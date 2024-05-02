@@ -123,7 +123,7 @@ public class Tienda {
 			return false;//CCog + 1
 		}
 		lista.add(nuevo);
-		vuelcaDatos();
+		actualizaDatos();
 		return true;
 	}
 
@@ -138,7 +138,7 @@ public class Tienda {
 			return false;//CCog + 1
 		}
 		lista.remove(v);
-		vuelcaDatos();
+		actualizaDatos();
 		return true;
 	}
 
@@ -164,7 +164,7 @@ public class Tienda {
 		}
 		v.anhade(importe);
 		v.setC(v.getC()+comision);
-		vuelcaDatos();
+		actualizaDatos();
 		return true;
 	}
 	
@@ -212,7 +212,7 @@ public class Tienda {
 	 * Actualiza el fichero datosTienda.txt con los datos actualizados de
 	 * los vendedores
 	 */
-	private void vuelcaDatos() throws DataAccessException {// wmc + 1
+	private void actualizaDatos() throws DataAccessException {// wmc + 1
 		PrintWriter out = null;
 		List<Vendedor> senior = new LinkedList<Vendedor>();
 		List<Vendedor> junior = new LinkedList<Vendedor>();
@@ -240,14 +240,14 @@ public class Tienda {
 			out.println("Senior");
 			for (Vendedor v : senior) {// wmc + 1 CCog + 1
 				VendedorEnPlantilla v1 = (VendedorEnPlantilla) v;
-				out.println("  Nombre: " + v1.getNombre() + " Id: " + v1.getId() + " DNI: " + v1.dni()
+				out.println("  Nombre: " + v1.getNombre() + " Id: " + v1.getId() + " DNI: " + v1.getDni()
 						+ " TotalVentasMes: " + v1.getTotalVentas() + " TotalComision: "+ v1.getC());
 			}
 			out.println();
 			out.println("Junior");
 			for (Vendedor v : junior) {// wmc + 1 CCog + 1
 				VendedorEnPlantilla v2 = (VendedorEnPlantilla) v;
-				out.println("  Nombre: " + v2.getNombre() + " Id: " + v2.getId() + " DNI: " + v2.dni()
+				out.println("  Nombre: " + v2.getNombre() + " Id: " + v2.getId() + " DNI: " + v2.getDni()
 						+ " TotalVentasMes: " + v2.getTotalVentas() + " TotalComision: "+ v2.getC());
 			}
 			out.println();
