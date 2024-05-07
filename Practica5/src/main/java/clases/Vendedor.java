@@ -1,3 +1,4 @@
+package clases;
 /**
  * Vendedor de la tienda. 
  * Por cada vendedor se almacenan sus datos personales 

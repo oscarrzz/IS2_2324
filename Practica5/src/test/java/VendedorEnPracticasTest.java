@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import clases.vendedorEnPracticas;
+
 
 public class VendedorEnPracticasTest {
 	
@@ -18,9 +20,9 @@ public class VendedorEnPracticasTest {
 	
 	@Test
 	public void testConstructor() {
-		assertEquals(sut.getId(), "1");
-		assertEquals(sut.getNombre(), "Ana");
-		assertEquals(sut.getDni(), "11111111A");
+		assertEquals("1", sut.getId());
+		assertEquals("Ana", sut.getNombre());
+		assertEquals("11111111A", sut.getDni());
 		assertEquals(0.0, sut.getTotalVentas());
 		assertEquals(0.0, sut.getC());
 	}

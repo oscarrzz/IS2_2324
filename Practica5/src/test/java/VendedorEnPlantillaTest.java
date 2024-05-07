@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import clases.TipoVendedor;
+import clases.VendedorEnPlantilla;
+
 
 
 public class VendedorEnPlantillaTest {
@@ -23,13 +26,13 @@ public class VendedorEnPlantillaTest {
 	
 	@Test
 	public void testConstructor() {
-		assertEquals(sutJunior.getId(), "1");
-		assertEquals(sutJunior.getDni(), "11111111A");
-		assertEquals(sutJunior.getNombre(), "Ana");
+		assertEquals("1", sutJunior.getId());
+		assertEquals("11111111A", sutJunior.getDni());
+		assertEquals("Ana", sutJunior.getNombre());
 		assertTrue(sutJunior.getTotalVentas()==0.0);
 		assertTrue(sutJunior.getC()==0.0);
-		assertEquals(sutJunior.tipo(), TipoVendedor.Junior);
-		assertEquals(sutSenior.tipo(), TipoVendedor.Senior);
+		assertEquals(TipoVendedor.Junior, sutJunior.tipo());
+		assertEquals(TipoVendedor.Senior, sutSenior.tipo());
 		
 	}
 

@@ -1,3 +1,4 @@
+package clases;
 
 /**
  * Enumerado que define los dos tipos de vendedores en plantilla

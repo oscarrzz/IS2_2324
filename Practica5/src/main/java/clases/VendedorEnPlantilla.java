@@ -1,3 +1,4 @@
+package clases;
 public class VendedorEnPlantilla extends Vendedor {
 	
 	private TipoVendedor tipo;

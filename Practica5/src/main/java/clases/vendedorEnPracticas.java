@@ -1,3 +1,4 @@
+package clases;
 public class vendedorEnPracticas extends Vendedor {	
 	/**
 	 * Retorna un nuevo vendedor en practicas

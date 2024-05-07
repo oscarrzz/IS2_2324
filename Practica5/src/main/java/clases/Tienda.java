@@ -1,3 +1,4 @@
+package clases;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -7,6 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+
+import excepciones.DataAccessException;
 
 /**
  * Clase que representa una tienda con un conjunto de vendedores. Gestiona las
@@ -240,22 +243,20 @@ public class Tienda {
 			out.println("Senior");
 			for (Vendedor v : senior) {// wmc + 1 CCog + 1
 				VendedorEnPlantilla v1 = (VendedorEnPlantilla) v;
-				out.println("  Nombre: " + v1.getNombre() + " Id: " + v1.getId() + " DNI: " + v1.getDni()
-						+ " TotalVentasMes: " + v1.getTotalVentas() + " TotalComision: "+ v1.getC());
+				out.println(vendedor_info(v1.getNombre(), v1.getId(), v1.getTotalVentas(), v1.getDni()));
 			}
 			out.println();
 			out.println("Junior");
 			for (Vendedor v : junior) {// wmc + 1 CCog + 1
 				VendedorEnPlantilla v2 = (VendedorEnPlantilla) v;
-				out.println("  Nombre: " + v2.getNombre() + " Id: " + v2.getId() + " DNI: " + v2.getDni()
-						+ " TotalVentasMes: " + v2.getTotalVentas() + " TotalComision: "+ v2.getC());
+				out.println(vendedor_info(v2.getNombre(), v2.getId(), v2.getTotalVentas(), v2.getDni()));
 			}
 			out.println();
 			out.println("Practicas");
 			for (Vendedor v : practicas) {// wmc + 1 CCog + 1
 				vendedorEnPracticas v3 = (vendedorEnPracticas) v;
-				out.println("  Nombre: " + v3.getNombre() + " Id: " + v3.getId() + " DNI: " + v3.getDni()
-						+ " TotalVentasMes: " + v3.getTotalVentas());
+				out.println(vendedor_info(v3.getNombre(), v3.getId(),
+						v3.getTotalVentas(), v3.getDni()));
 			}
 		} catch (IOException e) {// wmc + 1 CCog + 1
 			throw new DataAccessException();
@@ -264,5 +265,9 @@ public class Tienda {
 			if (out != null)// wmc + 1 CCog + 1
 				out.close();
 		}
+	}
+	public String vendedor_info(String nombre, String id, double ventasTotales, String dni) {
+		return "  Nombre: " + nombre + " Id: " + id + " DNI: " + dni
+		+ " TotalVentasMes: " + ventasTotales;
 	}
 }

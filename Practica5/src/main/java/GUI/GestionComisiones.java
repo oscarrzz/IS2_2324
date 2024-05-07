@@ -1,8 +1,12 @@
+package GUI;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import clases.Tienda;
+import clases.Vendedor;
+import excepciones.DataAccessException;
 import fundamentos.Menu;
 import fundamentos.Lectura;
 import fundamentos.Mensaje;
